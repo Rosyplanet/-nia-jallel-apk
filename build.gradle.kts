@@ -1,5 +1,4 @@
-
-        plugins {
+plugins {
     id("com.android.application") version "8.7.3"
 }
 
@@ -15,3 +14,4 @@ android {
         versionName = "1.0"
     }
 }
+        
