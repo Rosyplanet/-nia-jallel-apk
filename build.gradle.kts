@@ -1,6 +1,5 @@
-
-   plugins {
-    id("com.android.application") version "8.7.3"
+plugins {
+    id("com.android.application")
 }
 
 android {
@@ -14,4 +13,4 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
-}     
+}
