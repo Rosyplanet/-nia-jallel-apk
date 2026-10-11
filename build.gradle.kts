@@ -1,17 +1,29 @@
+name: Construire NIA Jallel
 
-plugins {
-    id("com.android.application") version "8.7.3"
-}
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
-android {
-    namespace = "com.jallel.nia"
-    compileSdk = 35
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Recuperer le projet
+        uses: actions/checkout@v4
 
-    defaultConfig {
-        applicationId = "com.jallel.nia"
-        minSdk = 23
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-    }
-}
+      - name: Installer Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Compiler l'APK
+        run: gradle :app:assembleDebug
+
+      - name: Publier l'APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: NIA-Jallel-APK
+          path: app/build/outputs/apk/debug/app-debug.apk
