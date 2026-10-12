@@ -1,5 +1,4 @@
-
-    name: Construire NIA Jallel
+name: Construire NIA Jallel
 
 on:
 workflow_dispatch:
